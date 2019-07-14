@@ -19,7 +19,6 @@ class HelloController extends Controller
 
   h1 {
     font-size: 100px;
-    text-align: center:
     color: #eee;
   }
 
@@ -29,7 +28,7 @@ class HelloController extends Controller
 </style>
 <body>
   <h1>Index</h1>
-  <p>Helloコントローラのindexアクションのテスト</p>
+  <p>Helloコントローラのindexアクションによって表示されているページです</p>
 </body>
 </head>
 </html>
