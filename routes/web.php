@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-$html = <<<EOF
+
+Route::get('hello/{msg}', function ($msg) {
+  $html = <<<EOF
 <html>
 <head>
 <title>Hello, Laravel</title>
@@ -39,10 +41,11 @@ p {
   <h1>Hello, Laravel</h1>
   <p>This is a sample site.</p>
   <p>サンプルページです。</p>
+  <p>{$msg}</p>
 </body>
 </html>
 EOF;
+  
 
-Route::get('hello', function () use ($html) {
   return $html;
 });
