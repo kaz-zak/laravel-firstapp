@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('hello', function () {
+  return '<html><body><h1>Hello, Laravel!</h1><p>This page is a sample site.</p></body></html>';
+});
