@@ -15,6 +15,34 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello', function () {
-  return '<html><body><h1>Hello, Laravel!</h1><p>This page is a sample site.</p></body></html>';
+$html = <<<EOF
+<html>
+<head>
+<title>Hello, Laravel</title>
+<style>
+body {
+  font-size: 16px;
+  color: #999;
+}
+h1 {
+  font-size: 100px;
+  text-align: center;
+  color: #eee;
+}
+p {
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+  <h1>Hello, Laravel</h1>
+  <p>This is a sample site.</p>
+  <p>サンプルページです。</p>
+</body>
+</html>
+EOF;
+
+Route::get('hello', function () use ($html) {
+  return $html;
 });
