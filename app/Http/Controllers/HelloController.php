@@ -38,6 +38,7 @@ class HelloController extends Controller
 {
   public function index() {
     global $head, $style, $body, $end;
+
     $html = $head . tag('title', 'Hello/Index') . 
             $style . 
             $body .
@@ -45,6 +46,20 @@ class HelloController extends Controller
             $tag('p', 'This is index page!') .
             '<a href="/hello/other">Go to other page.</a>' .
             $end;
+
+    return $html;
+  }
+
+  public function other() {
+    global $head, $style, $body, $end;
+
+    $html = $head . tag('title', 'Hello/Other') . 
+            $style .
+            $body .
+            tag('h1', 'Other') .
+            tag('p', 'This is other page.') .
+            $end;
+
     return $html;
   }
 }
