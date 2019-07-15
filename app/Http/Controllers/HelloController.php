@@ -1,4 +1,6 @@
 <?php
+namespace App\Http\Controllers;
+
 global $head, $style, $body, $end;
 $head = '<html><head>';
 $style = <<<EOF
@@ -30,7 +32,6 @@ function tag($tag, $text) {
   return '<{$tag}>' . $text . '</{$tag}>';
 }
 
-namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
