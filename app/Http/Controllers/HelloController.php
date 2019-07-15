@@ -36,21 +36,15 @@ use Illuminate\Http\Request;
 
 class HelloController extends Controller
 {
-  public function index($id = 'noname', $pass = 'unknown') {
-    return <<<EOF
-<html>
-<head>
-<title>Hello/index</title>
-<body>
-  <h1>Index</h1>
-  <p>Helloコントローラのindexアクションによって表示されているページです</p>
-  <ul>
-    <li>ID: {$id}</li>
-    <li>PASS: {$pass}</li>
-  </ul>
-</body>
-</head>
-</html>
-EOF;
+  public function index() {
+    global $head, $style, $body, $end;
+    $html = $head . tag('title', 'Hello/Index') . 
+            $style . 
+            $body .
+            $tag('h1', 'Index') .
+            $tag('p', 'This is index page!') .
+            '<a href="/hello/other">Go to other page.</a>' .
+            $end;
+    return $html;
   }
 }
