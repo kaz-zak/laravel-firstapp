@@ -1,16 +1,7 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class HelloController extends Controller
-{
-  public function index($id = 'noname', $pass = 'unknown') {
-    return <<<EOF
-<html>
-<head>
-<title>Hello/index</title>
+global $head, $style, $body, $end;
+$head = '<html><head>';
+$style = <<<EOF
 <style>
   body {
     font-size: 16px;
@@ -31,6 +22,21 @@ class HelloController extends Controller
     list-style-type: none;
   }
 </style>
+EOF;
+$body = '</head><body>';
+$end = '</body></head>';
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HelloController extends Controller
+{
+  public function index($id = 'noname', $pass = 'unknown') {
+    return <<<EOF
+<html>
+<head>
+<title>Hello/index</title>
 <body>
   <h1>Index</h1>
   <p>Helloコントローラのindexアクションによって表示されているページです</p>
