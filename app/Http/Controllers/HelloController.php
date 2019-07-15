@@ -38,7 +38,6 @@ ul {
   <pre>{$request}</pre>
   <h2>Response</h2>
   <pre>{$response}</pre>
-  <p>シングルコントローラのアクションを実行しています。</p>
 </body>
 </html>
 EOF;
