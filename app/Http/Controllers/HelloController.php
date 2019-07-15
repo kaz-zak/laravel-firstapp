@@ -29,7 +29,7 @@ $body = '</head><body>';
 $end = '</body></head>';
 
 function tag($tag, $text) {
-  return '<{$tag}>' . $text . '</{$tag}>';
+  return "<{$tag}>" . $text . "</{$tag}>";
 }
 
 use Illuminate\Http\Request;
