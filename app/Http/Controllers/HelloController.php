@@ -2,14 +2,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class HelloController extends Controller
 {
-  public function __invoke() {
-    return <<<EOF
+  public function index(Request $request, Response $response) {
+    $html = <<<EOF
 <html>
 <head>
-<title>Hello</title>
+<title>Hello/Index</title>
 </head>
 <style>
 body {
@@ -32,10 +33,17 @@ ul {
 }
 </style>
 <body>
-  <h1>Single Action</h1>
+  <h1>Hello</h1>
+  <h2>Request</h2>
+  <pre>{$request}</pre>
+  <h2>Response</h2>
+  <pre>{$response}</pre>
   <p>シングルコントローラのアクションを実行しています。</p>
 </body>
 </html>
 EOF;
+
+  $response->setContent($html);
+  return $response;
   }
 }
