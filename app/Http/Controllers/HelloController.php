@@ -32,7 +32,6 @@ function tag($tag, $text) {
   return '<{$tag}>' . $text . '</{$tag}>';
 }
 
-
 use Illuminate\Http\Request;
 
 class HelloController extends Controller
@@ -43,8 +42,8 @@ class HelloController extends Controller
     $html = $head . tag('title', 'Hello/Index') . 
             $style . 
             $body .
-            $tag('h1', 'Index') .
-            $tag('p', 'This is index page!') .
+            tag('h1', 'Index') .
+            tag('p', 'This is index page!') .
             '<a href="/hello/other">Go to other page.</a>' .
             $end;
 
