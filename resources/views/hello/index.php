@@ -16,6 +16,7 @@
 
 <body>
   <h1>Index</h1>
-  <p>This is a sample page with template-engin Blade.</p>
+  <p><?php echo $msg; ?></p>
+  <p>ID=<?php echo $id; ?></p>
 </body>
 </html>
