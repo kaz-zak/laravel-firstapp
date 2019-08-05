@@ -6,6 +6,7 @@ use Illuminate\Http\Response;
 use App\Http\Requests\HelloRequest;
 use Validator;
 
+
 class HelloController extends Controller
 {
   public function index(Request $request)
