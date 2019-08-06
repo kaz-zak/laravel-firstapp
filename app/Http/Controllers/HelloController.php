@@ -29,7 +29,7 @@ class HelloController extends Controller
 
   public function add(Request $request)
   {
-    return view('hello');
+    return view('hello.add');
   }
 
   public function create(Request $request)
