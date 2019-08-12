@@ -1,9 +1,11 @@
 @extends('layouts.helloapp')
 
 @section('title', 'Delete')
+
+@section('menubar')
   @parent
   削除ページ
-@section('menuber')
+@endsection
 
 @section('content')
   <table>

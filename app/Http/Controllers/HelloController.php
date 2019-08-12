@@ -71,8 +71,8 @@ class HelloController extends Controller
   {
     $param = ['id' => $request->id];
     $item = DB::select('select * from people where id = :id', $param);
-    
-    return view('hello.del', $item[0]);
+
+    return view('hello.del', ['form' => $item[0]]);
   }
 
   public function remove(Request $request)
