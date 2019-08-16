@@ -9,7 +9,7 @@
 
 @section('content')
   <table>
-  <form action="post" action="/hello/edit">
+  <form method="post" action="/hello/edit">
     {{ csrf_field() }}
     <input type="hidden" name="id" value="{{ $form->id }}">
     <tr><th>Name: </th><td><input type="text" name="name" value="{{ $form->name }}"></td></tr>
