@@ -26,7 +26,7 @@ class RestappController extends Controller
      */
     public function create()
     {
-        //
+        return view('rest.create');
     }
 
     /**
@@ -37,7 +37,13 @@ class RestappController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form = $request->all();
+        unset($form['_token']);
+
+        $restdata = new Restdata;
+        $restdata->fill($form)->save();
+        
+        return redirect('/rest');
     }
 
     /**
