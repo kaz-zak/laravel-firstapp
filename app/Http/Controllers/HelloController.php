@@ -10,98 +10,98 @@ use App\Person;
 
 class HelloController extends Controller
 {
-  public function index(Request $request)
-  {
-    $items = DB::table('people')->simplePagenate(5);
+    public function index(Request $request)
+    {
+        $items = DB::table('people')->simplePaginate(5);
 
-    return view('hello.index', ['items' => $items]);
-  }
+        return view('hello.index', ['items' => $items]);
+    }
 
-  public function post(Request $request)
-  {
+    public function post(Request $request)
+    {
     $items = DB::select('select * from people');
     return view('hello.index', ['items' => $items]);
-  }
+    }
 
-  public function add(Request $request)
-  {
+    public function add(Request $request)
+    {
     return view('hello.add');
-  }
+    }
 
-  public function create(Request $request)
-  {
+    public function create(Request $request)
+    {
     $param = [
-      'name' => $request->name,
-      'mail' => $request->mail,
-      'age' => $request->age,
+        'name' => $request->name,
+        'mail' => $request->mail,
+        'age' => $request->age,
     ];
 
     DB::table('people')->insert($param);
 
     return redirect('/hello');
-  }
+    }
 
-  public function edit(Request $request)
-  {
+    public function edit(Request $request)
+    {
     $item = DB::table('people')->where('id', $request->id)->first();
 
     return view('hello.edit', ['form' => $item]);
-  }
+    }
 
-  public function update(Request $request)
-  {
+    public function update(Request $request)
+    {
     $param = [
-      'name' => $request->name,
-      'mail' => $request->mail,
-      'age' => $request->age,
+        'name' => $request->name,
+        'mail' => $request->mail,
+        'age' => $request->age,
     ];
 
     DB::table('people')->where('id', $request->id)->update($param);
 
     return redirect('/hello');
-  }
+    }
 
-  public function del(Request $request)
-  {
+    public function del(Request $request)
+    {
     $item = DB::table('people')->where('id', $request->id)->first();
 
     return view('hello.del', ['form' => $item]);
-  }
+    }
 
-  public function remove(Request $request)
-  {
+    public function remove(Request $request)
+    {
     DB::table('people')->where('id', $request->id)->delete();
 
     return redirect('/hello');
-  }
+    }
 
-  public function show(Request $request)
-  {
+    public function show(Request $request)
+    {
     $page = $request->page;
     $items = DB::table('people')->offset($page * 3)
                                 ->limit(3)
                                 ->get();
 
     return view('hello.show' , ['items' => $items]);
-  }
+    }
 
-  public function rest()
-  {
-      return view('hello.rest');
-  }
+    public function rest()
+    {
+        return view('hello.rest');
+    }
 
-  public function ses_get(Request $request)
-  {
-      $ses_data = $request->session()->get('msg');
+    public function ses_get(Request $request)
+    {
+        $ses_data = $request->session()->get('msg');
 
-      return view('hello.session', ['session_data' => $ses_data]);
-  }
+        return view('hello.session', ['session_data' => $ses_data]);
+    }
 
-  public function ses_put(Request $request)
-  {
-      $msg = $request->input;
-      $request->session()->put('msg', $msg);
+    public function ses_put(Request $request)
+    {
+        $msg = $request->input;
+        $request->session()->put('msg', $msg);
 
-      return redirect('hello/session');
-  }
+        return redirect('hello/session');
+    }
 }
