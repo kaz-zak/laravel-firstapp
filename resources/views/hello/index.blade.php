@@ -9,6 +9,13 @@
     .pagination li {
         display: inline-block;
     }
+
+    tr th a:link,
+    tr th a:visited,
+    tr th a:hover,
+    tr th a:active {
+        color: white;
+    }
 </style>
 
 @section('title', 'Index')
@@ -22,7 +29,11 @@
 
   <table>
 
-    <tr><th>Name</th><th>Mail</th><th>Age</th></tr>
+    <tr>
+        <th> <a href="/hello?sort=name">Name</th>
+        <th> <a href="/hello?sort=mail">Mail</th>
+        <th> <a href="/hello?sort=age">Age</th>
+    </tr>
 
     @foreach ($items as $item)
     <tr>
@@ -34,7 +45,7 @@
 
   </table>
 
-    {{ $items->links() }}
+    {{ $items->appends(['sort' => $sort])->links() }}
 
 @endsection
 
