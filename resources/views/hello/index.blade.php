@@ -45,7 +45,7 @@
 
   </table>
 
-    {{ $items->appends(['sort' => $sort])->links() }}
+    {{ $items->appends(['sort' => $sort])->links('/resources/views/vendor/pagination/simple-default') }}
 
 @endsection
 
