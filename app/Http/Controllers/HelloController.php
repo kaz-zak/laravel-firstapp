@@ -109,4 +109,25 @@ class HelloController extends Controller
 
         return redirect('hello/session');
     }
+
+    public function getAuth()
+    {
+        $param = ['message' => 'ログインしてください'];
+
+        return view('hello.auth', $param);
+    }
+
+    public function postAuth(Request $request)
+    {
+        $email = $request->email;
+        $pass = $request->password;
+
+        if (Auth::attempt(['email' => $email, 'password' => $pass])) {
+            $message = 'ログインしました。ようこそ' . Auth::user()->name . 'さん';
+        } else {
+            $message = 'ログインに失敗しました';
+        }
+
+        return view('hello.auth', ['message' => $message]);
+    }
 }
