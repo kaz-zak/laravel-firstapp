@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>@yield('title')</title>
+  <link rel="stylesheet" href="/css/app.css">
   <style>
     body { font-size: 16px; color: #999; margin: 5px; }
     h1 { font-size: 50px; text-align: right; color: #f6f6f6; }
@@ -12,6 +13,7 @@
     th { background-color: #999; color: #fff; padding: 5px 10px; }
     td { border: solid 1px #aaa; color: #999; padding: 5px 10px; }
   </style>
+</head>
 
   <body>
     <h1>@yield('title')</h1>
@@ -31,5 +33,4 @@
     @yield('footer')
     </footer>
   </body>
-</head>
 </html>
